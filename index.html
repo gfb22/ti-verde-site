@@ -1,9 +1,8 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>TI-Verde - Sustentabilidade na Tecnologia</title>
     <style>
         body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f4; }
@@ -13,7 +12,9 @@
         section { padding: 20px; max-width: 1000px; margin: auto; background: white; margin-top: 20px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
         footer { background-color: #2E7D32; color: white; text-align: center; padding: 10px; margin-top: 20px; }
         h2 { color: #2E7D32; }
+        .chart-container { width: 80%; margin: 30px auto; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
     </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
 
@@ -26,6 +27,8 @@
     <a href="#elixo">Reciclagem de E-Lixo</a>
     <a href="#cloud">Cloud Computing Sustentável</a>
     <a href="#datacenters">Data Centers Verdes</a>
+    <a href="#dashboard">Dashboard</a>
+    <a href="#ods12">ODS 12</a>
 </nav>
 
 <section id="eficiencia">
@@ -48,9 +51,77 @@
     <p>Infraestruturas tecnológicas projetadas para alta eficiência energética, reaproveitamento de calor, uso de fontes renováveis e menor impacto ambiental.</p>
 </section>
 
+<section id="dashboard">
+    <h2>Dashboard TI-Verde</h2>
+    <div class="chart-container">
+        <h3>Redução de Energia por Empresa (%)</h3>
+        <canvas id="graficoEmpresas"></canvas>
+    </div>
+    <div class="chart-container">
+        <h3>Conhecimento sobre TI-Verde (Público Geral)</h3>
+        <canvas id="graficoPublico"></canvas>
+    </div>
+</section>
+
+<section id="ods12">
+    <h2>ODS 12 - Consumo e Produção Responsáveis</h2>
+    <p>O projeto TI-Verde está alinhado ao ODS 12 da ONU, que promove padrões de consumo e produção sustentáveis, buscando reduzir desperdícios e incentivar tecnologias limpas e eficientes.</p>
+    <h3>Contribuições do TI-Verde para o ODS 12:</h3>
+    <ul>
+        <li>Redução do consumo energético por meio da eficiência em TI.</li>
+        <li>Reciclagem e descarte correto de equipamentos eletrônicos.</li>
+        <li>Adoção de data centers verdes e cloud sustentável.</li>
+        <li>Engajamento empresarial em práticas sustentáveis.</li>
+    </ul>
+    <h3>Empresas e Iniciativas:</h3>
+    <ul>
+        <li><strong>EcoTech Solutions:</strong> Equipamentos eficientes e campanhas de reciclagem.</li>
+        <li><strong>VerdeCloud Serviços:</strong> Data centers com energia renovável e cloud sustentável.</li>
+        <li><strong>DataCenter Sustentável:</strong> Reaproveitamento de calor e capacitação em TI-Verde.</li>
+    </ul>
+</section>
+
 <footer>
     <p>&copy; 2025 TI-Verde - Todos os direitos reservados</p>
 </footer>
+
+<script>
+    const nomesEmpresas = ["EcoTech Solutions", "VerdeCloud Serviços", "DataCenter Sustentável"];
+    const reducaoEnergia = [18, 25, 30];
+
+    new Chart(document.getElementById('graficoEmpresas'), {
+        type: 'bar',
+        data: {
+            labels: nomesEmpresas,
+            datasets: [{
+                label: 'Redução de Energia (%)',
+                data: reducaoEnergia,
+                backgroundColor: ['#66BB6A', '#43A047', '#2E7D32']
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: { y: { beginAtZero: true } }
+        }
+    });
+
+    const conhecem = 9;
+    const naoConhecem = 8;
+
+    new Chart(document.getElementById('graficoPublico'), {
+        type: 'doughnut',
+        data: {
+            labels: ['Conhece TI-Verde', 'Não conhece'],
+            datasets: [{
+                data: [conhecem, naoConhecem],
+                backgroundColor: ['#43A047', '#C62828']
+            }]
+        },
+        options: {
+            responsive: true
+        }
+    });
+</script>
 
 </body>
 </html>
