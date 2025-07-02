@@ -1,0 +1,109 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TI-Verde - Sustentabilidade na Tecnologia</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f4; }
+        header { background-color: #2E7D32; color: white; padding: 20px; text-align: center; }
+        nav { background-color: #388E3C; padding: 10px; text-align: center; }
+        nav a { color: white; margin: 0 15px; text-decoration: none; font-weight: bold; }
+        section { padding: 20px; max-width: 1000px; margin: auto; background: white; margin-top: 20px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+        footer { background-color: #2E7D32; color: white; text-align: center; padding: 10px; margin-top: 20px; }
+        h2 { color: #2E7D32; }
+        .chart-container { width: 80%; margin: 30px auto; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<header>
+    <h1>TI-Verde - Sustentabilidade na Tecnologia</h1>
+</header>
+
+<nav>
+    <a href="#eficiencia">Eficiência Energética</a>
+    <a href="#elixo">Reciclagem de E-Lixo</a>
+    <a href="#cloud">Cloud Computing Sustentável</a>
+    <a href="#datacenters">Data Centers Verdes</a>
+    <a href="#dashboard">Dashboard</a>
+</nav>
+
+<section id="eficiencia">
+    <h2>Eficiência Energética</h2>
+    <p>Práticas que visam reduzir o consumo de energia na área de TI, como o uso de equipamentos com selo de eficiência, otimização de softwares e políticas de economia de energia.</p>
+</section>
+
+<section id="elixo">
+    <h2>Reciclagem de E-Lixo</h2>
+    <p>Descarte correto e reaproveitamento de resíduos eletrônicos, prevenindo a contaminação do meio ambiente e reaproveitando componentes valiosos.</p>
+</section>
+
+<section id="cloud">
+    <h2>Cloud Computing Sustentável</h2>
+    <p>Serviços em nuvem com foco em sustentabilidade, utilizando servidores otimizados e fontes de energia limpa, reduzindo a pegada de carbono das empresas.</p>
+</section>
+
+<section id="datacenters">
+    <h2>Data Centers Verdes</h2>
+    <p>Infraestruturas tecnológicas projetadas para alta eficiência energética, reaproveitamento de calor, uso de fontes renováveis e menor impacto ambiental.</p>
+</section>
+
+<section id="dashboard">
+    <h2>Dashboard TI-Verde</h2>
+    <div class="chart-container">
+        <h3>Redução de Energia por Empresa (%)</h3>
+        <canvas id="graficoEmpresas"></canvas>
+    </div>
+    <div class="chart-container">
+        <h3>Conhecimento sobre TI-Verde (Público Geral)</h3>
+        <canvas id="graficoPublico"></canvas>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2025 TI-Verde - Todos os direitos reservados</p>
+</footer>
+
+<script>
+    const nomesEmpresas = ["EcoTech Solutions", "VerdeCloud Serviços", "DataCenter Sustentável"];
+    const reducaoEnergia = [18, 25, 30];
+
+    new Chart(document.getElementById('graficoEmpresas'), {
+        type: 'bar',
+        data: {
+            labels: nomesEmpresas,
+            datasets: [{
+                label: 'Redução de Energia (%)',
+                data: reducaoEnergia,
+                backgroundColor: ['#66BB6A', '#43A047', '#2E7D32']
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: { y: { beginAtZero: true } }
+        }
+    });
+
+    const conhecem = 9;
+    const naoConhecem = 8;
+
+    new Chart(document.getElementById('graficoPublico'), {
+        type: 'doughnut',
+        data: {
+            labels: ['Conhece TI-Verde', 'Não conhece'],
+            datasets: [{
+                data: [conhecem, naoConhecem],
+                backgroundColor: ['#43A047', '#C62828']
+            }]
+        },
+        options: {
+            responsive: true
+        }
+    });
+</script>
+
+</body>
+</html>
